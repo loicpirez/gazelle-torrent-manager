@@ -1,10 +1,9 @@
 {
   "format": "artist/date/title/format/type/quality",
-  "download_path": "/var/lib/transmission-daemon/downloads",
+  "download_path": "/torrents",
   "profile": {
     "jpopsuki.eu": {
-      "regex":
-        "/(?<artist>(.*?)) - (?<title>(.*?)) - (?<date>([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))) (\\((?<type>(.*?)) - (?<format>(.*?)) - (?<quality>(.*?))\\)).torrent/",
+      "regex": "(?<artist>((.*?))) - (?<title>((.*?))) - (?<date>([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))) \\((((?<format>.*?) - ((?<type>.*?)) - ((?<quality>.*?))))\\).torrent",
       "upload": true,
       "announce_url": "http://jpopsuki.eu:7531"
     }

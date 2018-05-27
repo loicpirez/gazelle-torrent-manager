@@ -1,5 +1,5 @@
-import gazelleTorrentManager from './gazelleTorrentManager'
+import GazelleTorrentManager from './gazelleTorrentManager'
 
 // TODO: Configuration from JSON file.
 
-new gazelleTorrentManager('./torrents')
+GazelleTorrentManager('./torrents')
