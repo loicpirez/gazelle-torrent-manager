@@ -25,6 +25,8 @@
     "eslint-plugin-standard": "^3.1.0"
   },
   "dependencies": {
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "named-regexp-groups": "^1.0.3",
     "parse-torrent": "^6.0.0",
     "unescape-js": "^1.1.0"
   }
