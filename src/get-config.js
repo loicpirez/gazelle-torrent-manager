@@ -1,6 +1,5 @@
 import config from '../config.json'
 
-// TODO : getProfileConfig, getGlobalConfig
 const getGlobalConfig = () => {
   return {
     downloadPath: config.download_path,
