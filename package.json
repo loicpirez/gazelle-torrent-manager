@@ -4,7 +4,8 @@
   "description": "Utility to upload your Gazelles based torrent on an organized way",
   "main": "src/index.js",
   "scripts": {
-    "build": "babel ./src -d ./dist",
+    "build": "babel index.js ./src -d ./dist",
+    "clean": "shx rm -f dist/*",
     "lint": "eslint --fix src",
     "start": "npm run build && node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -22,7 +23,8 @@
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.7.0",
-    "eslint-plugin-standard": "^3.1.0"
+    "eslint-plugin-standard": "^3.1.0",
+    "shx": "^0.2.2"
   },
   "dependencies": {
     "babel-plugin-transform-runtime": "^6.23.0",
