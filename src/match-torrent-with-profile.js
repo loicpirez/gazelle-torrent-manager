@@ -1,9 +1,10 @@
 import getUploadTarget from './get-upload-target'
-import uploadTorrent from './upload-torrent'
 import getAllProfile from './get-all-profile'
 import { getProfileConfig } from './get-config'
 
 const matchTorrentWithProfile = (torrentName, announceUrl, torrentFolderLocation) => {
+  let matchedTorrent = null
+
   Object.keys(getAllProfile()).map(index => {
     const currentConfig = getProfileConfig(index)
     if (announceUrl.indexOf(currentConfig.announceUrl) === 0) {
@@ -11,16 +12,13 @@ const matchTorrentWithProfile = (torrentName, announceUrl, torrentFolderLocation
         currentConfig,
         torrentName
       )
-      if (uploadTarget) {
-        console.log(`"${torrentName}" should be in "${uploadTarget}" ...`)
-        if (!currentConfig.shouldUpload) {
-          console.log('Skipping upload as shouldUpload is set to false.')
-        } else {
-          uploadTorrent(currentConfig, torrentName, uploadTarget, torrentFolderLocation)
-        }
+      matchedTorrent = {
+        target: uploadTarget,
+        config: currentConfig
       }
     }
   })
+  return matchedTorrent
 }
 
 export default matchTorrentWithProfile

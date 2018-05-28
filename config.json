@@ -6,7 +6,7 @@
       "regex": "(?<artist>((.*?))) - (?<title>((.*?))) - (?<date>([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))) \\((((?<format>.*?) - ((?<type>.*?)) - ((?<quality>.*?))))\\).torrent",
       "should_upload": true,
       "announce_url": "http://jpopsuki.eu:7531",
-      "command_line": "transmission-cli torrent-add $torrentName --download-dir $finalTarget"
+      "command_line": "transmission-cli torrent-add $torrentName --download-dir $pathTarget"
     }
   }
 }
