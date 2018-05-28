@@ -66,3 +66,6 @@ typings/
 node_modules/
 package-lock.json
 dist/*.js
+torrents/*.torrent
+.vscode/*
+
