@@ -1,11 +1,11 @@
 import fs from 'fs'
 import matchTorrentWithProfile from './match-torrent-with-profile'
-import parseTorrent from 'parse-torrent'
 import path from 'path'
+import { getGazelleAnnounceLink } from './get-torrent-details'
 
 const handleTorrent = (fileName, data) => {
-  const torrentData = parseTorrent(data)
-  matchTorrentWithProfile(fileName, torrentData)
+  const announceUrl = getGazelleAnnounceLink(data)
+  matchTorrentWithProfile(fileName, announceUrl)
 }
 
 const gazelleTorrentManager = (folder) => {

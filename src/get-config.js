@@ -12,7 +12,7 @@ const getProfileConfig = (index) => {
     announceUrl: config['profile'][index].announce_url,
     commandLine: config['profile'][index].command_line,
     shouldUpload: config['profile'][index].should_upload,
-    regex: config['profile'].regex
+    regex: config['profile'][index].regex
   }
 }
 

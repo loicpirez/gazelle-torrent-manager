@@ -1,12 +1,9 @@
 import getUploadTarget from './get-upload-target'
 import uploadTorrent from './upload-torrent'
-import { getAllProfile } from './get-all-profile'
+import getAllProfile from './get-all-profile'
 import { getProfileConfig } from './get-config'
 
-const matchTorrentWithProfile = (fileName, torrentDetails) => {
-  // Gazelle torrents does have only have one announce.
-  let announceUrl = torrentDetails.announce[0]
-
+const matchTorrentWithProfile = (fileName, announceUrl) => {
   Object.keys(getAllProfile()).map(index => {
     const currentConfig = getProfileConfig(index)
     if (announceUrl.indexOf(currentConfig.announceUrl) === 0) {
