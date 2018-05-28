@@ -3,10 +3,10 @@ import unescapeJs from 'unescape-js'
 import { fillTorrentTarget } from './fill'
 import { getGlobalConfig } from './get-config'
 
-const getUploadTarget = (currentConfig, fileName) => {
+const getUploadTarget = (currentConfig, torrentName) => {
   const regex = new NamedRegExp(unescapeJs(currentConfig.regex))
   const globalConfig = getGlobalConfig()
-  const match = regex.exec(fileName)
+  const match = regex.exec(torrentName)
   const groups = match.groups
 
   if (
@@ -17,7 +17,7 @@ const getUploadTarget = (currentConfig, fileName) => {
     !groups.type ||
     !match.groups.quality
   ) {
-    console.error('Missing required parameter in fileName.')
+    console.error('Missing required parameter in torrentName.')
   } else {
     return globalConfig.downloadPath + '/' + fillTorrentTarget(globalConfig.formatPath, match)
   }

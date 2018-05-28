@@ -1,7 +1,7 @@
 const fillTorrentTarget = (target, match) => {
   let newTarget = target
 
-  newTarget = target.replace('$artist', match.groups.artist)
+  newTarget = newTarget.replace('$artist', match.groups.artist)
   newTarget = newTarget.replace('$title', match.groups.title)
   newTarget = newTarget.replace('$date', match.groups.date)
   newTarget = newTarget.replace('$type', match.groups.type)
@@ -10,8 +10,12 @@ const fillTorrentTarget = (target, match) => {
   return newTarget
 }
 
-const fillCommandLine = (commandLine, fileName, finalTarget) => {
+const fillCommandLine = (commandLine, torrentName, finalTarget) => {
+  let newCommandLine = commandLine
 
+  newCommandLine = newCommandLine.replace('$torrentName', `"${torrentName}"`)
+  newCommandLine = newCommandLine.replace('$finalTarget', `"${finalTarget}"`)
+  return newCommandLine
 }
 
 export {

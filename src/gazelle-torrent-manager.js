@@ -3,23 +3,23 @@ import matchTorrentWithProfile from './match-torrent-with-profile'
 import path from 'path'
 import { getGazelleAnnounceLink } from './get-torrent-details'
 
-const handleTorrent = (fileName, data) => {
+const handleTorrent = (torrentName, data, torrentFolderLocation) => {
   const announceUrl = getGazelleAnnounceLink(data)
-  matchTorrentWithProfile(fileName, announceUrl)
+  matchTorrentWithProfile(torrentName, announceUrl, torrentFolderLocation)
 }
 
-const gazelleTorrentManager = (folder) => {
-  fs.readdir(folder, (error, files) => {
+const gazelleTorrentManager = (torrentFolderLocation) => {
+  fs.readdir(torrentFolderLocation, (error, files) => {
     if (error) {
       throw error
     }
-    files.forEach(fileName => {
-      if (/^.*\.(torrent)$/.test(fileName)) {
-        fs.readFile(path.join(__dirname, `/../torrents/${fileName}`), (error, data) => {
+    files.forEach(torrentName => {
+      if (/^.*\.(torrent)$/.test(torrentName)) {
+        fs.readFile(path.join(torrentFolderLocation, torrentName), (error, data) => {
           if (error) {
             throw error
           }
-          handleTorrent(fileName, data)
+          handleTorrent(torrentName, data, torrentFolderLocation)
         })
       }
     })
